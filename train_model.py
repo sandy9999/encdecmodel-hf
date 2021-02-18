@@ -9,7 +9,7 @@ import torch.nn.functional as F
 from data import TranslationDataset
 from transformers_hide import BertTokenizerFast
 from transformers_hide import BertModel, BertForMaskedLM, BertConfig
-from transformers_hide import EncoderDecoderModel
+from transformers_hide import EncoderDecoderModel, EncoderDecoderConfig
 
 # Identify the config file
 if len(sys.argv) < 2:
@@ -79,8 +79,11 @@ decoder_config = BertConfig(vocab_size = vocabsize,
 
 decoder = BertForMaskedLM(config=decoder_config)
 
+encoder_decoder_config = EncoderDecoderConfig.from_encoder_decoder_configs(encoder_config, decoder_config)
+encoder_decoder_config.tie_encoder_decoder = True
+
 # Define encoder decoder model
-model = EncoderDecoderModel(encoder=encoder, decoder=decoder)
+model = EncoderDecoderModel(encoder=encoder, decoder=decoder, config=encoder_decoder_config)
 model.to(device)
 
 def count_parameters(mdl):
