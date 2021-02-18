@@ -80,7 +80,7 @@ decoder_config = BertConfig(vocab_size = vocabsize,
 decoder = BertForMaskedLM(config=decoder_config)
 
 # Define encoder decoder model
-model = EncoderDecoderModel(encoder=encoder, decoder=decoder, tie_encoder_decoder=False)
+model = EncoderDecoderModel(encoder=encoder, decoder=decoder)
 model.to(device)
 
 def count_parameters(mdl):
