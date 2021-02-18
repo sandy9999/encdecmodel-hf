@@ -80,7 +80,7 @@ decoder_config = BertConfig(vocab_size = vocabsize,
 decoder = BertForMaskedLM(config=decoder_config)
 
 encoder_decoder_config = EncoderDecoderConfig.from_encoder_decoder_configs(encoder_config, decoder_config)
-encoder_decoder_config.tie_encoder_decoder = True
+encoder_decoder_config.tie_encoder_decoder = False
 
 # Define encoder decoder model
 model = EncoderDecoderModel(encoder=encoder, decoder=decoder, config=encoder_decoder_config)
