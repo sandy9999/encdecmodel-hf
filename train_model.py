@@ -7,9 +7,9 @@ import torch.optim as optim
 import torch.nn.functional as F
 
 from data import TranslationDataset
-from TextHide.transformers_hide import BertTokenizerFast
-from TextHide.transformers_hide import BertModel, BertForMaskedLM, BertConfig
-from TextHide.transformers_hide import EncoderDecoderModel
+from transformers_hide import BertTokenizerFast
+from transformers_hide import BertModel, BertForMaskedLM, BertConfig
+from transformers_hide import EncoderDecoderModel
 
 # Identify the config file
 if len(sys.argv) < 2:
