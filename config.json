@@ -28,7 +28,7 @@
 
     "model_params" : {
         "batch_size" : 16,
-        "num_epochs" : 10,
+        "num_epochs" : 1,
         "lr": 0.0001,
         "model_path" : "models/",
         "model_name": "encdec.mdl"
